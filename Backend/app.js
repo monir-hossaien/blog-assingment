@@ -16,12 +16,15 @@ app.use(cookieParser());
 app.use(cors());
 app.use(helmet())
 
+// // Trust the first proxy
+// app.set('trust proxy', 1);
+
 // route setup
 app.use("/api/v1", routes);
 
 // api limiter
-const limiter = rateLimit({windowMs: 1000 * 1000, limit: 100,});
-app.use(limiter)
+// const limiter = rateLimit({windowMs: 1000 * 1000, limit: 100,});
+// app.use(limiter)
 
 app.get("/", (req, res) => {
     res.send("Hello from Express on Vercel!")
@@ -57,12 +60,12 @@ if (app.get('env') === 'development') {
 
 // production error handler
 // no stacktraces leaked to user
-app.use(function(err, req, res, next) {
-    res.status(err.status || 500);
-    res.render('error', {
-        message: err.message,
-        error: {}
-    });
-});
+// app.use(function(err, req, res, next) {
+//     res.status(err.status || 500);
+//     res.render('error', {
+//         message: err.message,
+//         error: {}
+//     });
+// });
 
 export default app;
