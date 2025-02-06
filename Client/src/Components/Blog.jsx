@@ -1,6 +1,16 @@
-import React from 'react';
+import React, {useEffect} from 'react';
+import {blogStore} from "../Store/blogStore.js";
 
 const Blog = () => {
+
+    const {blogList, blogListRequest} = blogStore();
+    console.log(blogList)
+    useEffect(()=>{
+        (async()=>{
+            await blogListRequest()
+        })()
+    },[])
+
     return (
         <section className="bg-white dark:bg-gray-900 lg:px-20 lg:py-14">
             <div className="container px-6 py-10 mx-auto">
