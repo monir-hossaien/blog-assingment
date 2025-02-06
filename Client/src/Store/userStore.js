@@ -24,7 +24,7 @@ export const userStore = create((set)=>({
     },
 
     loginRequest: async (postBody)=>{
-        const res = await axios.post(`${baseURL}/login`, postBody);
+        const res = await axios.post(`${baseURL}/login`, postBody, {withCredentials: true});
         let data = res?.data
         return data
     }

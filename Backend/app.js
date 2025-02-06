@@ -14,10 +14,7 @@ app.use(cookieParser());
 
 // cors setup
 app.use(cors(
-    {
-        credentials: true,
-        origin: "*"
-    }
+    
 ));
 app.use(helmet())
 

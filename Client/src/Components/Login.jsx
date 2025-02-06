@@ -23,7 +23,7 @@ const Login = () => {
                 errorToast(res?.message);
             }
         }catch(e){
-            isSubmit(false);
+            setSubmit(false);
             errorToast(e?.response?.data?.message);
         }
     }
