@@ -13,7 +13,10 @@ app.use(express.static("public"));
 app.use(cookieParser());
 
 // cors setup
-app.use(cors());
+app.use(cors({
+    origin: " http://localhost:5173", // Allow frontend domain
+    credentials: true,
+}));
 app.use(helmet())
 
 // // Trust the first proxy
