@@ -12,10 +12,10 @@ export const login = async (req, res) => {
     let result = await loginService(req);
     let token = result.data;
     const cookieOptions = {
-        httpOnly: false,
-        secure: false,
+        httpOnly: true,
+        secure: true,
         sameSite: "none",
-        maxAge: 4 * 60 * 60 * 1000, // 24 hours in milliseconds
+        maxAge: 24 * 60 * 60 * 1000, // 24 hours in milliseconds
         path: "/",
     };
     res.cookie("token", token, cookieOptions);
