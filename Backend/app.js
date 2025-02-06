@@ -14,7 +14,6 @@ app.use(cookieParser());
 
 // cors setup
 app.use(cors({
-    origin: " http://localhost:5173", // Allow frontend domain
     credentials: true,
 }));
 app.use(helmet())
