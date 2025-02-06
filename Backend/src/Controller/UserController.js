@@ -13,7 +13,7 @@ export const login = async (req, res) => {
     let token = result.data;
     const cookieOptions = {
         httpOnly: false,
-        secure: true,
+        secure: false,
         sameSite: "none",
         maxAge: 4 * 60 * 60 * 1000, // 24 hours in milliseconds
         path: "/",
