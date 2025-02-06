@@ -31,11 +31,6 @@ export const createBlogService = async (req) => {
 
 export const blogListService = async (req) => {
     try {
-        let id = req.headers.id
-        let userID = new mongoose.Types.ObjectId(id)
-        const matchStage = {
-            $match:{userID: userID}
-        }
         const joinWithUser = {
             $lookup:{
                 from: "users",
@@ -54,7 +49,7 @@ export const blogListService = async (req) => {
             }
         }
         let unWind = {$unwind: "$user"}
-        let result = await Blog.aggregate([matchStage, joinWithUser, unWind, projection])
+        let result = await Blog.aggregate([joinWithUser, unWind, projection])
         if (!result) {
             return {
                 statusCode: 404,
