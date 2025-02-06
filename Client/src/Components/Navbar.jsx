@@ -1,12 +1,26 @@
 import { useState } from "react";
-import {Link, NavLink} from "react-router";
+import {NavLink} from "react-router";
+import {userStore} from "../Store/userStore.js";
+import axios from "axios";
+import {errorToast, successToast} from "../Helpers/helper.js";
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
+    const {isLogin, logoutRequest} = userStore()
+
+    const handleLogout = async () => {
+        const res = await logoutRequest()
+        console.log(res)
+        if (res){
+            successToast(res?.message)
+        }else{
+            errorToast(res?.message)
+        }
+    }
 
     return (
         <div className="">
-            <nav className="relative bg-white shadow dark:bg-gray-800 md:px-20">
+            <nav className="bg-white shadow dark:bg-gray-800 md:px-20 fixed top-0 z-40 w-full">
                 <div className="container px-6 py-3 mx-auto md:flex md:items-center md:justify-between">
                     <div className="flex items-center justify-between">
                         <a href="#">
@@ -67,14 +81,25 @@ const Navbar = () => {
                         </div>
 
                         <div>
-                            <NavLink to="/dashboard"
-                                     className="px-2.5 py-2 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 md:mx-2 rounded">
-                                Dashboard
-                            </NavLink>
-                            <NavLink to="/login"
-                                     className="px-2.5 py-2 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 md:mx-2 rounded">
-                                Login
-                            </NavLink>
+                            {
+                                isLogin() ? (
+                                        <div>
+                                            <NavLink to="/dashboard"
+                                                     className="px-2.5 py-2 text-gray-700 dark:text-gray-200 bg-indigo-50  hover:bg-indigo-100 transition-all dark:hover:bg-gray-700 md:mx-2 rounded">
+                                                Dashboard
+                                            </NavLink>
+                                            <button onClick={()=> handleLogout()}
+                                                className="px-3.5 py-1.5 cursor-pointer text-gray-700 dark:text-gray-200 bg-orange-600 hover:bg-orange-700 transition-all dark:hover:bg-gray-700 md:mx-2 rounded">
+                                                Logout
+                                            </button>
+                                        </div>
+                                ):(
+                                    <NavLink to="/login"
+                                             className="px-3.5 py-2 text-gray-700 dark:text-gray-200 bg-green-400  hover:bg-green-500 transition-all dark:hover:bg-gray-700 md:mx-2 rounded">
+                                        Login
+                                    </NavLink>
+                                )
+                            }
                         </div>
                     </div>
                 </div>
