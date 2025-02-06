@@ -13,7 +13,12 @@ app.use(express.static("public"));
 app.use(cookieParser());
 
 // cors setup
-app.use(cors());
+app.use(cors(
+    {
+        credentials: true,
+        origin: "*"
+    }
+));
 app.use(helmet())
 
 // // Trust the first proxy
