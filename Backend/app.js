@@ -16,10 +16,7 @@ app.use(cookieParser());
 app.set('etag', false);
 
 // cors setup
-app.use(cors({
-    origin: "http://localhost:5173",
-    credentials: true,
-}));
+app.use(cors());
 app.use(helmet())
 
 // // Trust the first proxy
@@ -47,7 +44,7 @@ app.use((req,res,next)=>{
 
 
 app.use(function(req, res, next) {
-    var err = new Error('Not Found');
+    let err = new Error('Not Found');
     err.status = 404;
     next(err);
 });
