@@ -13,7 +13,7 @@ router.post("/login", UserController.login);
 router.get("/logout", UserController.logout);
 
 // service api
-router.post("/create-service", upload.single("image"), ServiceController.createService);
+router.post("/create-service", authenticateUser, upload.single("image"), ServiceController.createService);
 router.get("/service-list",  ServiceController.serviceList);
 router.delete("/delete-service/:serviceID", authenticateUser, ServiceController.deleteService);
 router.post("/update-service/:serviceID", authenticateUser, upload.single("image"), ServiceController.updateService);

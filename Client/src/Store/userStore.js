@@ -32,7 +32,7 @@ export const userStore = create((set)=>({
     },
 
     logoutRequest: async ()=>{
-        const res = await axios.get(`${baseURL}/logout`);
-        return res?.data?.status === "true"
+        let res = await cookies.remove('token');
+        return res
     }
 }))

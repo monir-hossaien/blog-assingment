@@ -2,8 +2,8 @@ import React from 'react';
 
 const Contact = () => {
     return (
-        <section className="bg-white dark:bg-gray-900 px-20">
-            <div className="container px-6 py-12 mx-auto">
+        <section className="bg-white dark:bg-gray-900 section">
+            <div className="container">
                 <div>
                     <p className="font-medium text-blue-500 dark:text-blue-400">Contact us</p>
 

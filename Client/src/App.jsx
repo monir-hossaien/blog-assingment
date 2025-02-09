@@ -6,6 +6,8 @@ import BlogPage from "./Pages/BlogPage.jsx";
 import ServicePage from "./Pages/ServicePage.jsx";
 import ContactPage from "./Pages/ContactPage.jsx";
 import LoginPage from "./Pages/LoginPage.jsx";
+import DashboardPage from "./Dashboard/Pages/DashboardPage.jsx";
+import AddBlogPage from "./Dashboard/Pages/AddBlogPage.jsx";
 
 const App = () => {
   return (
@@ -18,6 +20,8 @@ const App = () => {
           <Route path="/service" element={<ServicePage/>}/>
           <Route path="/contact" element={<ContactPage/>}/>
           <Route path="/login" element={<LoginPage/>}/>
+          <Route path="/dashboard" element={<DashboardPage/>}/>
+          <Route path="/add-blog" element={<AddBlogPage/>}/>
         </Routes>
       </BrowserRouter>
     </>

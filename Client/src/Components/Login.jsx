@@ -29,8 +29,8 @@ const Login = () => {
     }
 
     return (
-        <div className="py-18">
-            <div className="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-lg shadow dark:bg-gray-800">
+        <div className="section">
+            <div className="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-lg shadow dark:bg-gray-800 py-5">
                 <div className="px-6 py-4">
                     <div className="flex justify-center mx-auto">
                         <img className="w-auto h-7 sm:h-8" src="images/plainb-logo.svg" alt=""/>

@@ -3,8 +3,8 @@ import {NavLink} from "react-router";
 
 const Footer = () => {
     return (
-        <footer className="bg-white dark:bg-gray-900 px-20">
-            <div className="container px-6 py-8 mx-auto">
+        <footer className="bg-white dark:bg-gray-900">
+            <div className="container py-8">
                 <div className="flex flex-col items-center text-center">
                     <NavLink to="/">
                         <img className="w-auto h-7" src="images/plainb-logo.svg" alt=""/>

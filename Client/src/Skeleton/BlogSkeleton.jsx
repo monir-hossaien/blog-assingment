@@ -5,8 +5,8 @@ import Skeleton from "react-loading-skeleton";
 
 const BlogSkeleton = () => {
     return (
-        <section className="bg-white dark:bg-gray-900 lg:px-20 lg:py-14">
-            <div className="container px-6 py-10 mx-auto animate-pulse">
+        <section className="bg-white dark:bg-gray-900 section">
+            <div className="container animate-pulse">
                 <div className="text-center">
                     <h1 className="text-2xl font-semibold text-gray-800 capitalize lg:text-3xl dark:text-white">From the
                         blog</h1>

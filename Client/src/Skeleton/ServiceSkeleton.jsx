@@ -5,15 +5,15 @@ import Skeleton from "react-loading-skeleton";
 
 const ServiceSkeleton = () => {
     return (
-        <section className="bg-white dark:bg-gray-900 lg:px-20 lg:py-14">
-            <div className="container px-6 py-8 mx-auto animate-pulse">
+        <section className="bg-white dark:bg-gray-900 section">
+            <div className="container animate-pulse">
                 <h2 className="text-2xl font-semibold text-center  capitalize lg:text-3xl dark:text-white">Our Service</h2>
                 <div
                     className="grid gap-8 mt-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3">
                     {
                         Array.from({length: 8}).map((i)=>{
                             return (
-                                <div className="w-full max-w-xs shadow rounded" key={i}>
+                                <div className="w-full shadow rounded" key={i}>
                                     <div className="object-cover object-center w-full h-48 mx-auto rounded-lg">
                                         <Lottie className="w-full h-48" animationData={ImagePlaceholder} loop={true}/>
                                     </div>
