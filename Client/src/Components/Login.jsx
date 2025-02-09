@@ -14,7 +14,6 @@ const Login = () => {
         try {
             setSubmit(true);
             let res = await loginRequest(formData);
-            console.log(res)
             if(res.status === true){
                 setSubmit(false);
                 successToast(res?.message);
