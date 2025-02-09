@@ -20,7 +20,7 @@ const Navbar = () => {
             <nav className="py-3 md:flex md:items-center md:justify-between w-[85%] mx-auto">
                 <div className="flex items-center justify-between">
                     <NavLink to={"/"}>
-                        <img className="w-32" src="images/plainb-logo.svg" alt="Logo"/>
+                        <img className="w-28" src="images/plainb-logo.svg" alt="Logo"/>
                     </NavLink>
 
                     {/* Mobile Menu Button */}

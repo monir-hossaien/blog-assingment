@@ -11,7 +11,8 @@ export const createUser = async (req, res)=>{
 export const login = async (req, res) => {
     try {
         let result = await loginService(req);
-        let token = result.data;
+
+        let token = result.data.token;
         const cookieOptions = {
             httpOnly: false,
             secure: true,

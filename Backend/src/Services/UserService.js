@@ -58,7 +58,7 @@ export const loginService = async (req) => {
             statusCode: 200,
             status: true,
             message: "Login success",
-            data: token,
+            token: token,
         };
     } catch (err) {
         return {
