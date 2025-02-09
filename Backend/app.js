@@ -16,7 +16,12 @@ app.use(cookieParser());
 app.set('etag', false);
 
 // cors setup
-app.use(cors());
+app.use(cors(
+    {
+        origin: "http://localhost:5173/", // Replace with your frontend URL
+        credentials: true
+    }
+));
 app.use(helmet())
 
 // // Trust the first proxy
