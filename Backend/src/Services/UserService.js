@@ -54,6 +54,7 @@ export const loginService = async (req) => {
             };
         }
         let token = await createToken(user["email"], user["id"]);
+
         return {
             statusCode: 200,
             status: true,
