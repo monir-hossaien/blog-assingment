@@ -1,6 +1,7 @@
 import React from 'react';
 import Button from "./Button.jsx";
 import {blogStore} from "../../Store/blogStore.js";
+import {errorToast, successToast} from "../../Helpers/helper.js";
 const AddBlog = () => {
 
     const {createBlogListRequest, setSubmit, formData, inputOnchange} = blogStore();
@@ -8,9 +9,19 @@ const AddBlog = () => {
 
     const handleFormSubmit = async ()=>{
         try {
+            setSubmit(true);
             let res= await createBlogListRequest(formData);
+            if(res?.status === true){
+                setSubmit(false);
+                successToast(res?.message)
+            }else{
+                setSubmit(false)
+                errorToast(res?.message)
+            }
         }catch (e) {
+            setSubmit(false)
             console.log(e.message)
+            errorToast(e.response?.data?.message)
         }
     }
 
