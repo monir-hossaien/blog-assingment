@@ -14,7 +14,7 @@ export const login = async (req, res) => {
         let token = result.token
 
         const cookieOptions = {
-            httpOnly: true,
+            httpOnly: false,
             secure: true,
             sameSite: "none", // Cross-site cookie support (CORS)
             maxAge: 24 * 60 * 60 * 1000, // 24 hours
