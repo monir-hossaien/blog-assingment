@@ -12,6 +12,9 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
 app.use(cookieParser());
 
+// Cache
+app.set('etag', false);
+
 // cors setup
 app.use(cors({
     origin: "http://localhost:5173",
