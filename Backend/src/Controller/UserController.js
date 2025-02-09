@@ -9,17 +9,21 @@ export const createUser = async (req, res)=>{
 
 // login
 export const login = async (req, res) => {
-    let result = await loginService(req);
-    let token = result.data;
-    const cookieOptions = {
-        httpOnly: true,
-        secure: true,
-        sameSite: "none",
-        maxAge: 24 * 60 * 60 * 1000, // 24 hours in milliseconds
-        path: "/",
-    };
-    res.cookie("token", token, cookieOptions);
-    res.status(result.statusCode).json(result);
+    try {
+        let result = await loginService(req);
+        let token = result.data;
+        const cookieOptions = {
+            httpOnly: true,
+            secure: true,
+            sameSite: "None", // Cross-site cookie support (CORS)
+            maxAge: 24 * 60 * 60 * 1000, // 24 hours
+            path: "/",
+        };
+        res.cookie("token", token, cookieOptions);
+        res.status(result.statusCode).json(result);
+    }catch(err){
+        console.log(err.message);
+    }
 };
 
 //logout
