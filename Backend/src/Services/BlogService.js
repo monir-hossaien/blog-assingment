@@ -8,8 +8,9 @@ export const createBlogService = async (req) => {
     try {
         let userID = req.headers.id
         let reqBody = req.body;
-        let image = req?.file?.files[0];
+        let image = req?.file?.fieldname
         console.log(image)
+        console.log(req.file)
         reqBody.image = image;
         reqBody.userID = userID
         let result = await Blog.create(reqBody);
