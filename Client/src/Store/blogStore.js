@@ -28,7 +28,9 @@ export const blogStore = create((set)=>({
     },
 
     createBlogListRequest: async (formData)=>{
-        const res = await axios.post(`${baseURL}/create-blog`, formData, {withCredentials: true});
+        const res = await axios.post(`${baseURL}/create-blog`, formData,
+            {withCredentials: true},
+        );
         return res?.data
     }
 }))
