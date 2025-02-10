@@ -18,7 +18,7 @@ app.set('etag', false);
 // cors setup
 app.use(cors(
     {
-        origin: ["https://idyllic-churros-eed6cd.netlify.app", "http://localhost:5173"], // Replace with your frontend URL
+        origin: ["https://tech-soluations-bd.netlify.app", "http://localhost:5173"], // Replace with your frontend URL
         credentials: true
     }
 ));

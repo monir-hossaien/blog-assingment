@@ -1,10 +1,10 @@
 import React from 'react';
-import Button from "./BlogBtn.jsx";
 import {serviceStore} from "../../Store/serviceStore.js";
 import {errorToast, isEmpty, successToast} from "../../Helpers/helper.js";
 import ServiceBtn from "./ServiceBtn.jsx";
+import {userStore} from "../../Store/userStore.js";
 const AddService = () => {
-
+    const isLogin = userStore(state => state.isLogin);
     const {createServiceRequest, setSubmit, formData, inputOnchange} = serviceStore();
 
     const handleFormSubmit = async (e)=>{
@@ -23,7 +23,7 @@ const AddService = () => {
                 formDataToSend.append("shortDes", formData.shortDes);
                 formDataToSend.append("image", formData.image);
                 setSubmit(true);
-                let res= await createServiceRequest(formDataToSend);
+                let res= isLogin() && await createServiceRequest(formDataToSend);
                 if(res?.status === true){
                     setSubmit(false);
                     successToast(res?.message)

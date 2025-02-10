@@ -1,10 +1,10 @@
 import React from 'react';
-import Button from "./BlogBtn.jsx";
 import {errorToast, isEmpty, successToast} from "../../Helpers/helper.js";
 import {teamStore} from "../../Store/teamStore.js";
 import AddMemberBtn from "./AddMemberBtn.jsx";
+import {userStore} from "../../Store/userStore.js";
 const AddMember = () => {
-
+    const isLogin = userStore(state => state.isLogin);
     const {createMemberRequest, setSubmit, formData, inputOnchange} = teamStore();
 
     const handleFormSubmit = async (e)=>{
@@ -23,7 +23,7 @@ const AddMember = () => {
                 formDataToSend.append("designation", formData.designation);
                 formDataToSend.append("image", formData.image);
                 setSubmit(true);
-                let res= await createMemberRequest(formDataToSend);
+                let res= isLogin() && await createMemberRequest(formDataToSend);
                 if(res?.status === true){
                     setSubmit(false);
                     successToast(res?.message)
