@@ -1,7 +1,6 @@
 import React from 'react';
 import Navbar from "../Components/Navbar.jsx";
 import Sidebar from "../Dashboard/Components/Sidebar.jsx";
-import {Outlet} from "react-router";
 
 const DashboardLayout = ({children}) => {
     return (
@@ -9,7 +8,7 @@ const DashboardLayout = ({children}) => {
             <Navbar/>
             <div className="flex flex-grow overflow-hidden container">
                 <Sidebar/>
-                <div className="flex-grow p-10 overflow-y-auto">
+                <div className="flex-grow p-10 py-8 px-3 overflow-y-auto">
                     {children}
                 </div>
             </div>

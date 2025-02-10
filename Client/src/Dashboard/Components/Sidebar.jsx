@@ -12,8 +12,8 @@ const Sidebar = () => {
     };
 
     return (
-        <aside className="dashboard-sidebar h-screen w-40 shadow dark:bg-gray-900">
-            <nav className="h-full flex flex-col py-6">
+        <aside className="h-screen w-40 shadow dark:bg-gray-900">
+            <nav className="h-full flex flex-col section">
 
                 {/* Blog Section */}
                 <button
@@ -29,13 +29,13 @@ const Sidebar = () => {
                 </button>
 
                 {openSection === "blog" && (
-                    <ul className="flex flex-col gap-2 mt-2 ml-4">
-                        <NavLink to="/add-blog" className="text-sm font-medium text-gray-700 dark:text-gray-200 bg-gray-100 dark:bg-gray-800 px-6 py-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition-all">
+                    <ul className="flex flex-col gap-2 mt-2 ml-2">
+                        <NavLink to="/add-blog" className="text-sm font-medium text-gray-700 dark:text-gray-200 bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition-all">
                            <div className="flex items-center justify-around">
                                <IoMdAdd className="inline" /> Add Blog
                            </div>
                         </NavLink>
-                        <NavLink to="all-blogs" className="text-sm font-medium text-gray-700 dark:text-gray-200 bg-gray-100 dark:bg-gray-800 px-6 py-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition-all">
+                        <NavLink to="/all-blogs" className="text-sm font-medium text-gray-700 dark:text-gray-200 bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition-all">
                             <div className="flex items-center justify-around">
                                 <IoReaderOutline className="inline"/> All Blogs
                             </div>
@@ -57,13 +57,13 @@ const Sidebar = () => {
                 </button>
 
                 {openSection === "service" && (
-                    <ul className="flex flex-col gap-2 mt-2 ml-4">
-                        <NavLink to="/blog/add" className="text-sm font-medium text-gray-700 dark:text-gray-200 bg-gray-100 dark:bg-gray-800 px-6 py-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition-all">
+                    <ul className="flex flex-col gap-2 mt-2 ml-2">
+                        <NavLink to="/add-service" className="text-sm font-medium text-gray-700 dark:text-gray-200 bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition-all">
                            <div className="flex items-center justify-around">
                                <IoMdAdd className="inline" /> Add Service
                            </div>
                         </NavLink>
-                        <NavLink to="/blog/all" className="text-sm font-medium text-gray-700 dark:text-gray-200 bg-gray-100 dark:bg-gray-800 px-6 py-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition-all">
+                        <NavLink to="/all-services" className="text-sm font-medium text-gray-700 dark:text-gray-200 bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition-all">
                             <div className="flex items-center justify-around">
                                 <IoReaderOutline className="inline" /> All Services
                             </div>
@@ -85,13 +85,13 @@ const Sidebar = () => {
                 </button>
 
                 {openSection === "team" && (
-                    <ul className="flex flex-col gap-2 mt-2 ml-4">
-                        <NavLink to="/blog/add" className="text-sm font-medium text-gray-700 dark:text-gray-200 bg-gray-100 dark:bg-gray-800 px-6 py-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition-all">
+                    <ul className="flex flex-col gap-2 mt-2 ml-2">
+                        <NavLink to="/add-member" className="text-sm font-medium text-gray-700 dark:text-gray-200 bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition-all">
                             <div className="flex items-center justify-around">
                                 <IoMdAdd className="inline" /> Add Member
                             </div>
                         </NavLink>
-                        <NavLink to="/blog/all" className="text-sm font-medium text-gray-700 dark:text-gray-200 bg-gray-100 dark:bg-gray-800 px-6 py-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition-all">
+                        <NavLink to="/all-members" className="text-sm font-medium text-gray-700 dark:text-gray-200 bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition-all">
                             <div className="flex items-center justify-around">
                                 <IoReaderOutline className="inline" /> All Members
                             </div>

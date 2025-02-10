@@ -9,16 +9,15 @@ export const blogStore = create((set)=>({
     },
 
     formData:{title: "", content: "", image: ""},
-    inputOnchange: (name, value)=>{
-        set((state)=>({
+    inputOnchange: (name, value) => {
+        set((state) => ({
             ...state,
             formData: {
                 ...state.formData,
-                [name]: value
+                [name]: name === "image" ? value : value,  // Handle image as a file
             }
-        }))
+        }));
     },
-
     blogList: null,
     blogListRequest: async ()=>{
         set({blogList: null})
@@ -27,7 +26,7 @@ export const blogStore = create((set)=>({
         set({blogList: data})
     },
 
-    createBlogListRequest: async (formData)=>{
+    createBlogRequest: async (formData)=>{
         const res = await axios.post(`${baseURL}/create-blog`, formData,
             {withCredentials: true},
         );
