@@ -26,7 +26,8 @@ export const userStore = create((set)=>({
 
     loginRequest: async (postBody)=>{
         const res = await axios.post(`${baseURL}/login`, postBody, {withCredentials: true});
-        cookies.set('token', res.data.token)
+        console.log(res)
+        // cookies.set('token', res.data.token)
         return res.data
     },
 
