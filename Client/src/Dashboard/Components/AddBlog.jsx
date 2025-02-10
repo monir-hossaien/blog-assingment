@@ -1,12 +1,11 @@
 import React from 'react';
-import Button from "./BlogBtn.jsx";
 import {blogStore} from "../../Store/blogStore.js";
 import {errorToast, isEmpty, successToast} from "../../Helpers/helper.js";
 import BlogBtn from "./BlogBtn.jsx";
+import {userStore} from "../../Store/userStore.js";
 const AddBlog = () => {
-
     const {createBlogRequest, setSubmit, formData, inputOnchange} = blogStore();
-
+    const isLogin = userStore(state => state.isLogin);
     const handleFormSubmit = async (e)=>{
         e.preventDefault();
         try {
@@ -23,7 +22,7 @@ const AddBlog = () => {
                 formDataToSend.append("content", formData.content);
                 formDataToSend.append("image", formData.image);
                 setSubmit(true);
-                let res= await createBlogRequest(formDataToSend);
+                let res= isLogin() && await createBlogRequest(formDataToSend);
                 if(res?.status === true){
                     setSubmit(false);
                     successToast(res?.message)
