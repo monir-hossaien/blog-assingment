@@ -41,31 +41,31 @@ export const loginService = async (req) => {
     try {
         const { email, password } = req.body;
         // find user is exits or not
-        const user = await User.findOne({email});
+        let user = await User.findOne({email});
         if (!user) {
             return { statusCode: 404, status: false, message: "User not found" };
         }
-        const isMatch = await bcrypt.compare(password, user.password);
-        if (!isMatch) {
+        let isMatch = await bcrypt.compare(password, user.password);
+        if (isMatch) {
+            let token = await createToken(user["email"], user["id"]);
+            return {
+                statusCode: 200,
+                status: true,
+                message: "Login success",
+                token: token,
+            };
+        }else{
             return {
                 statusCode: 401,
                 status: false,
                 message: "Invalid email or password",
             };
         }
-        let token = await createToken(user["email"], user["id"]);
-
-        return {
-            statusCode: 200,
-            status: true,
-            message: "Login success",
-            token: token,
-        };
     } catch (err) {
         return {
             statusCode: 500,
             status: false,
-            message: "Something went wrong! Please try again later",
+            message: "Something went wrong!",
             error: err.message,
         };
     }

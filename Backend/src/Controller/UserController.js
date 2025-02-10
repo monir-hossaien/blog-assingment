@@ -11,21 +11,18 @@ export const createUser = async (req, res)=>{
 export const login = async (req, res) => {
     try {
         let result = await loginService(req);
-
-        if(result.status === true){
-            const cookieOptions = {
-                httpOnly: true,
-                secure: false,
-                sameSite: "none", // Cross-site cookie support (CORS)
-                maxAge: 24 * 60 * 60 * 1000, // 24 hours
-                path: "/",
-            };
-            res.cookie("token", result.token, cookieOptions);
-            res.status(result.statusCode).json(result);
-        }
+        const cookieOptions = {
+            httpOnly: true,
+            secure: false,
+            sameSite: "none", // Cross-site cookie support (CORS)
+            maxAge: 24 * 60 * 60 * 1000, // 24 hours
+            path: "/",
+        };
+        res.cookie("token", result.token, cookieOptions);
+        return res.status(result.statusCode).json(result);
     }catch(err){
         console.error("Login Error:", err.message);
-        return res.status(500).json({ message: "Internal server error" });
+        return res.status(500).json({ message: err.message });
     }
 };
 

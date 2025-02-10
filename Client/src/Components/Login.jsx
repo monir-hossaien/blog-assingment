@@ -1,26 +1,29 @@
 import React from 'react';
 import {userStore} from "../Store/userStore.js";
 import UserButton from "./UserButton.jsx";
-import {errorToast, successToast} from "../Helpers/helper.js";
+import {errorToast, isEmpty, successToast} from "../Helpers/helper.js";
 import {useNavigate} from "react-router";
 
 const Login = () => {
     const navigate = useNavigate();
-
     const {formData, loginRequest, inputOnchange, setSubmit} = userStore();
-    console.log(formData);
-
     const handleFormSubmit = async () => {
         try {
-            setSubmit(true);
-            let res = await loginRequest(formData);
-            if(res.status === true){
-                setSubmit(false);
-                successToast(res?.message);
-                navigate("/")
+            if(isEmpty(formData.email)){
+                errorToast("Email is required");
+            }else if(isEmpty(formData.password)){
+                errorToast("Password is required");
             }else{
-                setSubmit(false);
-                errorToast(res?.message);
+                setSubmit(true);
+                let res = await loginRequest(formData);
+                if(res.status === true){
+                    setSubmit(false);
+                    successToast(res?.message);
+                    navigate("/")
+                }else{
+                    setSubmit(false);
+                    errorToast(res?.message);
+                }
             }
         }catch(e){
             setSubmit(false);
