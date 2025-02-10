@@ -1,7 +1,7 @@
 import React from 'react';
 import {userStore} from "../Store/userStore.js";
 import UserButton from "./UserButton.jsx";
-import {errorToast, isEmpty, successToast} from "../Helpers/helper.js";
+import {errorToast, IsEmail, isEmpty, successToast} from "../Helpers/helper.js";
 import {useNavigate} from "react-router";
 
 const Login = () => {
@@ -9,7 +9,9 @@ const Login = () => {
     const {formData, loginRequest, inputOnchange, setSubmit} = userStore();
     const handleFormSubmit = async () => {
         try {
-            if(isEmpty(formData.email)){
+            if(!IsEmail(formData.email)){
+                errorToast("Email must be valid");
+            }else if(isEmpty(formData.email)){
                 errorToast("Email is required");
             }else if(isEmpty(formData.password)){
                 errorToast("Password is required");

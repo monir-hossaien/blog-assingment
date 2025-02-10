@@ -13,6 +13,7 @@ import AddServicePage from "./Dashboard/Pages/AddServicePage.jsx";
 import AllServicesPage from "./Dashboard/Pages/AllServicesPage.jsx";
 import AddMemberPage from "./Dashboard/Pages/AddMemberPage.jsx";
 import AllMembersPage from "./Dashboard/Pages/AllMembersPage.jsx";
+import PrivateRoutes from "./Components/PrivateRoutes.jsx";
 
 const App = () => {
   return (
@@ -25,13 +26,17 @@ const App = () => {
           <Route path="/service" element={<ServicePage/>}/>
           <Route path="/contact" element={<ContactPage/>}/>
           <Route path="/login" element={<LoginPage/>}/>
-          <Route path="/dashboard" element={<DashboardPage/>}/>
-          <Route path="/add-blog" element={<AddBlogPage/>}/>
-          <Route path="/all-blogs" element={<AllBlogsPage/>}/>
-          <Route path="/add-service" element={<AddServicePage/>}/>
-          <Route path="/all-services" element={<AllServicesPage/>}/>
-          <Route path="/add-member" element={<AddMemberPage/>}/>
-          <Route path="/all-members" element={<AllMembersPage/>}/>
+
+          {/*private routes*/}
+          <Route element={<PrivateRoutes />}>
+            <Route path="/dashboard" element={<DashboardPage/>}/>
+            <Route path="/add-blog" element={<AddBlogPage/>}/>
+            <Route path="/all-blogs" element={<AllBlogsPage/>}/>
+            <Route path="/add-service" element={<AddServicePage/>}/>
+            <Route path="/all-services" element={<AllServicesPage/>}/>
+            <Route path="/add-member" element={<AddMemberPage/>}/>
+            <Route path="/all-members" element={<AllMembersPage/>}/>
+          </Route>
         </Routes>
       </BrowserRouter>
     </>

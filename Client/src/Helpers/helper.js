@@ -23,3 +23,8 @@ export  const  TimestampToDate =(timestamp)=> {
 export const isEmpty =(value)=>{
     return value.length === 0;
 }
+
+export const IsEmail =(value)=>{
+    let EmailRegx = /\S+@\S+\.\S+/;
+    return EmailRegx.test(value)
+}
