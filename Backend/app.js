@@ -18,7 +18,7 @@ app.set('etag', false);
 // cors setup
 app.use(cors(
     {
-        origin: "http://localhost:5173", // Replace with your frontend URL
+        origin: "https://idyllic-parfait-26db38.netlify.app", // Replace with your frontend URL
         credentials: true
     }
 ));
